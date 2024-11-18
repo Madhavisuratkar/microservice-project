@@ -1,0 +1,18 @@
+package com.programmingtechie.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.programmingtechie.inventory_service.dto.InventoryResponse;
+import com.programmingtechie.inventory_service.entity.Inventory;
+
+@Service
+public interface InventoryService {
+	
+	public List<InventoryResponse> isInStock(List<String> skuCode) throws InterruptedException;
+
+	
+
+}

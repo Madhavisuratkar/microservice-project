@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.programmingtechie.repository.OrderRepository"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.entity.Order"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.entity.OrderLineItems"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.client.WebClient"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.service.OrderService"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.dto.OrderRequestDto"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.entity.Inventory"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.repository.InventoryRepository"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.service.InventoryService"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.dto.InventoryResponse"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.dto.OrderLineItemsDto"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.repository.ProductRepository"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.exception.ProductCreationException"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.service.ProductService"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.exception.ProductNotFoundException"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.dto.ProductRequest"/>
+    <fullyQualifiedTypeName name="com.programmingtechie.entity.Product"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+</qualifiedTypeNameHistroy>

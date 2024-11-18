@@ -1,0 +1,5 @@
+package com.programmingtechie.config;
+
+public class WebClientConfig {
+
+}

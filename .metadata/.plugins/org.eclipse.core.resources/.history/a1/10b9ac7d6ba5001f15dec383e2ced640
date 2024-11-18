@@ -1,0 +1,5 @@
+package com.programmingtechie.serviceImpl;
+
+public class InventoryServiceImpl {
+
+}

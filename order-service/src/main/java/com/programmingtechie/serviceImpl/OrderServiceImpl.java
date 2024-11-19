@@ -1,4 +1,4 @@
-package com.programmingtechie.serviceImpl;
+ package com.programmingtechie.serviceImpl;
 
 
 import java.util.Arrays;
@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 //import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -16,6 +17,7 @@ import com.programmingtechie.dto.OrderLineItemsDto;
 import com.programmingtechie.dto.OrderRequestDto;
 import com.programmingtechie.entity.Order;
 import com.programmingtechie.entity.OrderLineItems;
+import com.programmingtechie.event.OrderPlacedEvent;
 import com.programmingtechie.repository.OrderRepository;
 import com.programmingtechie.service.OrderService;
 
@@ -24,12 +26,16 @@ public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	private OrderRepository orderRepository;
+	
 
 	@Autowired
 	private WebClient webClient; // WebClient is correctly autowired
 
+	 @Autowired
+	 private KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate; // KafkaTemplate with parameterized types
+
 	@Override
-	public void placeOrder(OrderRequestDto orderRequestDto) {
+	public String placeOrder(OrderRequestDto orderRequestDto) {
 		// Create a new order
 		Order order = new Order();
 		order.setOrderNumber(UUID.randomUUID().toString());
@@ -60,6 +66,8 @@ public class OrderServiceImpl implements OrderService {
 		if (allProductInStock) {
 
 			orderRepository.save(order);
+			kafkaTemplate.send("notification",new OrderPlacedEvent(order.getOrderNumber()));
+			return "Order Placed Successfully";
 		} else {
 			throw new IllegalArgumentException("One or more products are not in stock.");
 		}
